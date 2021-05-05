@@ -1,31 +1,23 @@
 const {Sequelize, Model} = require('sequelize');
 const sequelize = require('../dataBase').getDb('coreDb')
-class User extends Model {
+class Role extends Model {
 }
-User.init({
+Role.init({
     id: {
         type: Sequelize.INTEGER(11),
-        field: 'user_id',
+        field: 'role_id',
         autoIncrement: true,
         primaryKey: true,
     },
-    password: {
-        type: Sequelize.STRING(30),
-        field: 'pass_word'
-    },
     name: {
         type: Sequelize.STRING(20),
-        field: 'user_name'
-    },
-    tel: {
-        type: Sequelize.STRING(11),
-        field: 'phone'
+        field: 'role_name'
     }
 }, {
     sequelize,
-    ModelName: 'User',
-    tableName: 'tb_user',
+    ModelName: 'Role',
+    tableName: 'tb_role',
     createdAt: 'created_at',
     updatedAt: 'updated_at'
 })
-module.exports = User
+module.exports = Role
